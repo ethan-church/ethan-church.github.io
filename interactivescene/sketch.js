@@ -6,7 +6,7 @@
 // - describe what you did to take this project "above and beyond"
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(windowHeight, windowWidth);
     background(255);
 }
 
