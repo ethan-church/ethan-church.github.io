@@ -1,14 +1,28 @@
-// Project Title
+// Colour Matcher
 // Ethan Church
-// September 13, 2018
+// Sept 13
+//
+// Idea of the game is to click the coloured ellipse with the correct coloured
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// - not expert yet....
+
+let r, g, b;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  background(0);
+  r = random(255);
+  g = random(255);
+  b = random(255);
 }
 
 function draw() {
+  centreDot();
+}
 
+//Creating colour changing centre dot.
+function centreDot() {
+  fill(r, g, b);
+	ellipse(width/2, height/2, width/4, width/4);
 }
