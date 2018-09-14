@@ -7,22 +7,43 @@
 // Extra for Experts:
 // - not expert yet....
 
-let r, g, b;
+	let colors;
+	let colorChoise;
+	let colorChoosen;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
-  r = random(255);
-  g = random(255);
-  b = random(255);
+	colors = ['red', 'green', 'blue'];
+ 	colorChoise = random(colors);
 }
 
 function draw() {
   centreDot();
+	colorPicker();
 }
 
 //Creating colour changing centre dot.
 function centreDot() {
-  fill(r, g, b);
-	ellipse(width/2, height/2, width/4, width/4);
+  if (colorChoise === 'red') {
+		fill(255, 0 ,0);
+	} else if (colorChoise === 'green'){
+		fill(0, 255, 0);
+	} else {
+		fill(0, 0, 255);
+	}
+	ellipse(width/2, height/2, width/3, width/3);
+}
+
+//Create color picker
+function colorPicker(){
+	if (keyIsPressed && key === "r"){
+		fill(255, 0, 0);
+	} else if (keyIsPressed && key === "g"){
+		fill(0, 255, 0);
+	} else {
+		fill(0, 0, 255);
+	}
+	fill(255);
+	rect(width/15, height/15, width/10, height/10);
 }

@@ -1,28 +1,49 @@
-// Drawing Ellipses and Rectangles
+// Colour Matcher
 // Ethan Church
-// September 12, 2018
+// Sept 13
+//
+// Idea of the game is to click the coloured ellipse with the correct coloured
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// - not expert yet....
+
+	let colors;
+	let colorChoise;
+	let colorChoosen;
 
 function setup() {
-    createCanvas(windowHeight, windowWidth);
-    background(255);
+  createCanvas(windowWidth, windowHeight);
+  background(0);
+	colors = ['red', 'green', 'blue'];
+ 	colorChoise = random(colors);
 }
 
 function draw() {
-  if (mouseIsPressed && keyIsPressed && key === "r"){
- 	rect(mouseX, mouseY, 100, 75)
-  }
-  if (mouseIsPressed && keyIsPressed && key === "e"){
- 	ellipse(mouseX, mouseY, 100, 75)
-  }
+  centreDot();
+	colorPicker();
 }
 
-function keyTyped(){
-  if (key === "w"){
-  	background(255);
-  } else if (key === "b"){
-    background(0);
-  	}
+//Creating colour changing centre dot.
+function centreDot() {
+  if (colorChoise === 'red') {
+		fill(255, 0 ,0);
+	} else if (colorChoise === 'green'){
+		fill(0, 255, 0);
+	} else {
+		fill(0, 0, 255);
+	}
+	ellipse(width/2, height/2, width/3, width/3);
+}
+
+//Create color picker
+function colorPicker(){
+	if (keyIsPressed && key === "r"){
+		fill(255, 0, 0);
+	} else if (keyIsPressed && key === "g"){
+		fill(0, 255, 0);
+	} else {
+		fill(0, 0, 255);
+	}
+	fill(255);
+	rect(width/15, height/15, width/10, width/10);
 }
