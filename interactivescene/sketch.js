@@ -8,14 +8,17 @@
 // - not expert yet....
 
 	let colors;
-	let colorChoise;
 	let colorChoosen;
+	let colorPicked;
+	let colorMade;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
+	noStroke();
 	colors = ['red', 'green', 'blue'];
- 	colorChoise = random(colors);
+ 	colorChoosen = random(colors);
+// TO BE USED CODE...	alert("Using the R, G, B keys, to switch color. Match the color picker box to the centre dot");
 }
 
 function draw() {
@@ -25,12 +28,15 @@ function draw() {
 
 //Creating colour changing centre dot.
 function centreDot() {
-  if (colorChoise === 'red') {
+  if (colorChoosen === 'red') {
 		fill(255, 0 ,0);
-	} else if (colorChoise === 'green'){
+		colorMade = 1;
+	} else if (colorChoosen === 'green'){
 		fill(0, 255, 0);
+		colorMade = 2;
 	} else {
 		fill(0, 0, 255);
+		colorMade = 3;
 	}
 	ellipse(width/2, height/2, width/3, width/3);
 }
@@ -39,11 +45,24 @@ function centreDot() {
 function colorPicker(){
 	if (keyIsPressed && key === "r"){
 		fill(255, 0, 0);
-	} else if (keyIsPressed && key === "g"){
+		colourPicked = 1;
+	} else if (keyIsPressed && key === "70"){
 		fill(0, 255, 0);
+		colourPicked = 2;
+	} else if (keyIsPressed && key === "66"){
+		fill (0, 0, 255);
+		colourPicked = 3;
 	} else {
-		fill(0, 0, 255);
-	}
 	fill(255);
+		colourPicked = 0;
+
+	}
 	rect(width/15, height/15, width/10, width/10);
+}
+
+//Checking to see if the color they have picked is correct
+function check(){
+	if (mouseIsPressed && colorPicked === colorMade){
+
+	}
 }
