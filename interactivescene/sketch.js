@@ -19,6 +19,7 @@ function setup() {
 	noStroke();
 	colors = ['red', 'green', 'blue'];
  	colorChoosen = random(colors);
+	score = 0;
 //TO BE USED... alert("Using the R, G, B keys, to switch color. Match the color picker box to the centre dot, as many times as you can in 10 seconds");
 }
 
@@ -65,7 +66,7 @@ function colorPicker(){
 //Checking to see if the color they have picked is correct
 function check(){
 	if (mouseIsPressed && colorPicked === colorMade){
-		score + 1;
+		score += 1;
 
 	}
 }
