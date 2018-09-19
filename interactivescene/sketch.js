@@ -67,12 +67,14 @@ function colorPicker(){
 function check(){
 	if (mouseIsPressed && colorPicked === colorMade){
 		score += 1;
-
+	} else {
+		score -= 1;
 	}
 }
 
 //Creates score Board
 function scoreBoard(){
+	console.log(score);
 }
 
 //Creates Clock to race
