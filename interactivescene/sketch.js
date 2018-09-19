@@ -26,6 +26,7 @@ function setup() {
 function draw() {
   centreDot();
 	colorPicker();
+	check();
 }
 
 //Creating colour changing centre dot.
