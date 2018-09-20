@@ -6,7 +6,7 @@ let fish;
 let scalar;
 
 function preload() {
-  fish = loadImage("assets/nemo.jpg");
+  fish = loadImage("assets/Nemo.jpg");
 }
 
 function setup() {
