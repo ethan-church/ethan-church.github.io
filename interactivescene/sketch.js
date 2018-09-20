@@ -10,14 +10,14 @@
 	let colors;
 	let colorChoosen;
 	let colorPicked;
-	let colorMade;
 	let score;
+	let red = 1, green = 2, blue = 3;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
 	noStroke();
-	colors = ['red', 'green', 'blue'];
+	colors = [ 1, 2, 3];
  	colorChoosen = random(colors);
 	score = 0;
 //TO BE USED... alert("Using the R, G, B keys, to switch color. Match the color picker box to the centre dot, as many times as you can in 10 seconds");
@@ -66,7 +66,7 @@ function colorPicker(){
 
 //Checking to see if the color they have picked is correct
 function check(){
-	if (mouseIsPressed && colorPicked === colorMade){
+	if (mouseIsPressed && colorPicked === colorChoosen){
 		score += 1;
 	} else {
 		score -= 1;
