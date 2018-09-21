@@ -9,9 +9,9 @@
 
 	let colors;
 	let colorChoosen;
-	let colorPicked;
 	let score;
 	let red = 1, green = 2, blue = 3;
+	let colorPicked;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -27,51 +27,43 @@ function draw() {
   centreDot();
 	colorPicker();
 	check();
+	scoreBoard();
 }
 
 //Creating colour changing centre dot.
 function centreDot() {
   if (colorChoosen === 'red') {
 		fill(255, 0 ,0);
-		colorMade = 1;
 	} else if (colorChoosen === 'green'){
 		fill(0, 255, 0);
-		colorMade = 2;
 	} else {
 		fill(0, 0, 255);
-		colorMade = 3;
 	}
 	ellipse(width/2, height/2, width/3, width/3);
 }
 
 //Create color picker box and fills with color when keys are pressed
 function colorPicker(){
-	if (keyIsPressed && key === "r"){
+	if (key === "r"){
 		fill(255, 0, 0);
-		colourPicked = 1;
-		rect(width/15, height/15, width/10, width/10);
-	} else if (keyIsPressed && key === "g"){
+		colorPicked = 1;
+	} else if (key === "g"){
 		fill(0, 255, 0);
-		colourPicked = 2;
-		rect(width/15, height/15, width/10, width/10);
-	} else if (keyIsPressed && key === "b"){
+		colorPicked = 2;
+	} else if (key === "b"){
 		fill (0, 0, 255);
-		colourPicked = 3;
-		rect(width/15, height/15, width/10, width/10);
+		colorPicked = 3;
 	} else {
-	fill(255)
-	rect(width/15, height/15, width/10, width/10);
+		fill(255);
 	}
+	rect(width/15, height/15, width/10, width/10);
 }
 
 //Checking to see if the color they have picked is correct
 function check(){
 	if (mouseIsPressed && colorPicked === colorChoosen){
 		score += 1;
-	} else {
-		score -= 1;
 	}
-}
 
 //Creates score Board
 function scoreBoard(){
