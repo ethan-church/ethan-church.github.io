@@ -3,12 +3,19 @@
 // Sept 13
 //
 // Extra for Experts:
-// - not expert yet....
+// My program stands out because I added a bell to the program if you get it right.
 
+	let incorrectBell;
+	let correctBell;
 	let colors;
 	let colorChoosen;
 	let red = 1, green = 2, blue = 3;
 	let colorPicked;
+
+	function preload() {
+	  correctBell = loadSound("assets/Bell.wav");
+		incorrectBell = loadSound("assets/Incorrect.wav");
+	}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -22,10 +29,8 @@ function setup() {
 
 function draw() {
   centreDot();
-	colorPicker()
-	if (mouseIsPressed && colorChoosen === colorPicked){
-	colorChoosen === random(colors);
-	}
+	colorPicker();
+	check();
 }
 
 //Creating colour changing centre dot.
@@ -57,10 +62,9 @@ function colorPicker(){
 	rect(width/15, height/15, width/10, width/10);
 }
 
-/*function check(){
+function check(){
 	if (mouseIsPressed && colorChoosen === colorPicked){
-		colorChoosen === random(colors);
-		centreDot();
+			colorChoosen = random(colors);
+			correctBell.play();
 	}
 }
-*/
