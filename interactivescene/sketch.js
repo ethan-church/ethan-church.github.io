@@ -2,41 +2,39 @@
 // Ethan Church
 // Sept 13
 //
-// Idea of the game is to click the coloured ellipse with the correct coloured as many times as you can in 10 seconds
-//
 // Extra for Experts:
 // - not expert yet....
 
 	let colors;
 	let colorChoosen;
-	let score;
 	let red = 1, green = 2, blue = 3;
 	let colorPicked;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(0);
+  background(255);
 	noStroke();
-	colors = [ 1, 2, 3];
+	colors = [1, 2, 3];
  	colorChoosen = random(colors);
-	score = 0;
+	console.log(colors);
 //TO BE USED... alert("Using the R, G, B keys, to switch color. Match the color picker box to the centre dot, as many times as you can in 10 seconds");
 }
 
 function draw() {
   centreDot();
-	colorPicker();
-	check();
-	scoreBoard();
+	colorPicker()
+	if (mouseIsPressed && colorChoosen === colorPicked){
+	colorChoosen === random(colors);
+	}
 }
 
 //Creating colour changing centre dot.
 function centreDot() {
-  if (colorChoosen === 'red') {
+  if (colorChoosen === 1){
 		fill(255, 0 ,0);
-	} else if (colorChoosen === 'green'){
+	} else if (colorChoosen === 2){
 		fill(0, 255, 0);
-	} else {
+	} else if (colorChoosen === 3){
 		fill(0, 0, 255);
 	}
 	ellipse(width/2, height/2, width/3, width/3);
@@ -59,17 +57,10 @@ function colorPicker(){
 	rect(width/15, height/15, width/10, width/10);
 }
 
-//Checking to see if the color they have picked is correct
-function check(){
-	if (mouseIsPressed && colorPicked === colorChoosen){
-		score += 1;
+/*function check(){
+	if (mouseIsPressed && colorChoosen === colorPicked){
+		colorChoosen === random(colors);
+		centreDot();
 	}
-
-//Creates score Board
-function scoreBoard(){
-	console.log(score);
 }
-
-//Creates Clock to race
-function  clock(){
-}
+*/
