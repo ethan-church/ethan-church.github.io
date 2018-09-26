@@ -6,49 +6,63 @@
 // changing according to time. You may want to investigate the millis()
 // function at https://p5js.org/reference/
 
-let redLightDuration = 5000;
-let yellowLightDuration = 2000;
-let greenLightDuration = 7000;
-let state = 1;
+const redLightDuration = 3000;
+const yellowLightDuration = 500;
+const greenLightDuration = 4000;
+
+let state;
+let lastTimeSwitchedColor;
 
 function setup() {
   createCanvas(600, 600);
+  state = 3;
+  lastTimeSwitchedColor = 0;
 }
 
 function draw() {
   background(255);
   drawOutlineOfLights();
-  determineLight();
+  checkForStateChange();
+  displayCorrectLight();
 }
 
-/*
-function determineLight(){
-  if (state === 1){
-    fill(255, 0, 0);
-    ellipse(width/2, height/2 - 65, 50, 50);
-  } else if (state === 2){
-    fill(125, 0, 125);
-    ellipse(width/2, height/2, 50, 50);
-  } else if (state === 3){
-    fill(0, 255, 0);
-    ellipse(width/2, height/2 + 65, 50, 50)
+function checkForStateChange(){
+  let elapsedTime = millis() - lastTimeSwitchedColor;
+  if (state === 1 && elaspsedTime >= redLightDuration) {
+    state === 2;
+    lastTimeSwitchedColor = millis();
+  } else if (state === 2 && elaspsedTime >= greenLightDuration) {
+    state === 3;
+    lastTimeSwitcheColor = millis();
+  } else if (state ===3 && elaspesedTime >= yellowLightDuration) {
+    state === 1;
+    lastTimeSwitcheColor = millis();
   }
 }
-*/
 
-function determineLight(){
-  if(millis() <= redLightDuration){
-    fill(255, 0, 0);
-    ellipse(width/2, height/2 - 65, 50, 50);
-  } else if (millis() > redLightDuration && millis() <= greenLightDuration){
-    fill(0, 255, 0);
-    ellipse(width/2, height/2 + 65, 50, 50)
-  } else if (millis() >= greenLightDuration){
-    fill(125);
-    ellipse(width/2, height/2, 50, 50);
+function displayCorrectLight(){
+  if (state = 1){
+    displayRedLight();
+  } else if (state = 2) {
+    displayGreenLight();
+  } else if (state = 3) {
+    displayYellowLight();
   }
-  console.log(millis());
-  millis() === 0;
+}
+
+function displayRedLight(){
+  fill (255, 0, 0);
+  ellipse(width/2, height/2 - 65, 50, 50);
+}
+
+function displayYellowLight (){
+  fill (255, 191, 0)
+  ellipse(width/2, height/2, 50, 50);
+}
+
+function displayGreenLight(){
+  fill (0, 255, 0);
+  ellipse(width/2, height/2 + 65, 50, 50);
 }
 
 function drawOutlineOfLights() {
