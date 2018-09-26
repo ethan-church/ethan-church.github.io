@@ -1,21 +1,21 @@
-// Traffic Light Starter Code
-// Dan Schellenberg
+// Traffic Light
+// Ethan Church
 // Sept 25, 2018
 
 // GOAL: make a 'traffic light' simulator. For now, just have the light
 // changing according to time. You may want to investigate the millis()
 // function at https://p5js.org/reference/
 
-const redLightDuration = 3000;
-const yellowLightDuration = 500;
-const greenLightDuration = 4000;
-
 let state;
 let lastTimeSwitchedColor;
 
+const RED_LIGHT_DURATION = 3000;
+const GREEN_LIGHT_DURATION = 4000;
+const YELLOW_LIGHT_DURATION = 1000;
+
 function setup() {
   createCanvas(600, 600);
-  state = 3;
+  state = 1;
   lastTimeSwitchedColor = 0;
 }
 
@@ -26,43 +26,47 @@ function draw() {
   displayCorrectLight();
 }
 
-function checkForStateChange(){
+function checkForStateChange() {
   let elapsedTime = millis() - lastTimeSwitchedColor;
-  if (state === 1 && elaspsedTime >= redLightDuration) {
-    state === 2;
+  if (state === 1 && elapsedTime >= RED_LIGHT_DURATION) {
+    state = 2;
     lastTimeSwitchedColor = millis();
-  } else if (state === 2 && elaspsedTime >= greenLightDuration) {
-    state === 3;
-    lastTimeSwitcheColor = millis();
-  } else if (state ===3 && elaspesedTime >= yellowLightDuration) {
-    state === 1;
-    lastTimeSwitcheColor = millis();
+  }
+  else if (state === 2 && elapsedTime >= GREEN_LIGHT_DURATION) {
+    state = 3;
+    lastTimeSwitchedColor = millis();
+  }
+  else if (state === 3 && elapsedTime >= YELLOW_LIGHT_DURATION) {
+    state = 1;
+    lastTimeSwitchedColor = millis();
   }
 }
 
-function displayCorrectLight(){
-  if (state = 1){
+function displayCorrectLight() {
+  if (state === 1) {
     displayRedLight();
-  } else if (state = 2) {
+  }
+  else if (state === 2) {
     displayGreenLight();
-  } else if (state = 3) {
+  }
+  else if (state === 3) {
     displayYellowLight();
   }
 }
 
-function displayRedLight(){
-  fill (255, 0, 0);
-  ellipse(width/2, height/2 - 65, 50, 50);
+function displayRedLight() {
+  fill(255, 0, 0);
+  ellipse(width/2, height/2 - 65, 50, 50); //top
 }
 
-function displayYellowLight (){
-  fill (255, 191, 0)
-  ellipse(width/2, height/2, 50, 50);
+function displayYellowLight() {
+  fill(255, 255, 0);
+  ellipse(width/2, height/2, 50, 50); //middle
 }
 
-function displayGreenLight(){
-  fill (0, 255, 0);
-  ellipse(width/2, height/2 + 65, 50, 50);
+function displayGreenLight() {
+  fill(0, 255, 0);
+  ellipse(width/2, height/2 + 65, 50, 50); //bottom
 }
 
 function drawOutlineOfLights() {
