@@ -19,7 +19,7 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  state = 2;
+  state = 3;
 }
 
 function draw() {
@@ -67,15 +67,16 @@ function shop(){
   background(100, 0, 200);
   fill(255);
   textSize(80);
-  text("to be continued!", windowWidth/2., windowHeight/2);
+  text("to be continued!", windowWidth/2, windowHeight/2);
 }
 
 //PLOT 1
 function plot1(){
   background(255, 255, 0);
-  fill(255);
+  fill(0);
+  textAlign(CENTRE);
   textSize(80);
-  text("to be continued!", windowWidth/2., windowHeight/2);
+  text("to be continued!");
 }
 
 //PLOT 2
@@ -90,6 +91,6 @@ function stateChange(){
   if (keyIsPressed && keyCode === LEFT_AAROW){
     state === 3;
   } else if (keyIsPressed && keyCode === RIGHT_ARROW){
-    state ===4
+    state === 4;
   }
 }
