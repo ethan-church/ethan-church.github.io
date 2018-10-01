@@ -12,7 +12,7 @@ Later build on menu screen and creating own chatecter, etc.
 // - describe what you did to take this project "above and beyond"
 
 function preload(){
-  menu = loadImage("assets/greenmeadowsestatehomescreen.png");
+  menu = loadImage("assets/startscreen.png");
 }
 
 function setup() {
@@ -20,7 +20,7 @@ function setup() {
 }
 
 function draw() {
-  image(menu, 0, 0, );
+  image(menu, 0, 0, windowWidth, windowHeight);
 }
 /*
 //Creates main home page that opens up when game is started
