@@ -28,8 +28,7 @@ function setup() {
 }
 
 function draw() {
-  image(startscreenbackground, 0, 0, windowWidth, windowHeight);
-  // homeScreen();
+  homeScreen();
   // determineState();
   // stateChange();
   //  image(menu, 0, 0, windowWidth, windowHeight);
@@ -37,6 +36,8 @@ function draw() {
 
 //Creates main home page that opens up when game is started
 function homeScreen() {
+  startScreenBackground();
+  startScreenLogo();
   startButton();
   shopButton();
   settingsButton();
@@ -59,9 +60,25 @@ function determineState() {
 
 //START MENU
 
+//Creates start screen background
+function startScreenBackground(){
+  image(startscreenbackground, 0, 0, windowWidth, windowHeight);
+}
+
+//Adds logo to main screen
+function startScreenLogo(){
+  image(logo, 0, 0, windowWidth, windowHeight);
+}
+
 //Creates start button that is clickable and brings you to different pages
 function startButton() {
-  image(startbutton, windowWidth/2, windowWidth/2)
+  image(startbutton, 0, 0, windowWidth/2, windowHeight/2)
+  fill(34, 161, 183);
+  strokeWeight(windowWidth/300)
+  stroke(255);
+  rect(windowWidth/2, windowHeight/2, windowWidth/8, windowHeight/13, 45)
+  textSize(windowWidth/35);
+  text("Start", windowWidth/2, windowHeight/2)
 }
 
 //Creates clickable button that opens up in app purchases
