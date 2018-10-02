@@ -13,35 +13,44 @@ Later build on menu screen and creating own chatecter, etc.
 
 let state;
 
-function preload(){
+function preload() {
   menu = loadImage("assets/startscreen.png");
+  settingsbutton = loadImage("assets/settingsbutton.png");
+  shopbutton = loadImage("assets/shopbutton.png");
+  startbutton = loadImage("assets/startbutton.png");
+  startscreenbackground = loadImage("assets/startscreenbackground.png");
+  logo = loadImage("assets/greenmeadowsestatelogo.png");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  state = 3;
+  state = 1;
 }
 
 function draw() {
-  determineState();
-  stateChange();
-//  image(menu, 0, 0, windowWidth, windowHeight);
+  image(startscreenbackground, 0, 0, windowWidth, windowHeight);
+  // homeScreen();
+  // determineState();
+  // stateChange();
+  //  image(menu, 0, 0, windowWidth, windowHeight);
 }
 
 //Creates main home page that opens up when game is started
-function homeScreen(){
+function homeScreen() {
   startButton();
   shopButton();
   settingsButton();
 }
 
 //Determines exactly which menu screen the player is in.
-function determineState(){
-  if (state === 2){
+function determineState() {
+  if (state === 1) {
+    startmenu();
+  } else if (state === 2) {
     shop();
-  } else if (state === 3){
+  } else if (state === 3) {
     plot1();
-  } else if (state === 4){
+  } else if (state === 4) {
     plot2();
   } else {
     console.log("something really weird happend!")
@@ -51,27 +60,30 @@ function determineState(){
 //START MENU
 
 //Creates start button that is clickable and brings you to different pages
-function startButton(){
+function startButton() {
+  image(startbutton, windowWidth/2, windowWidth/2)
 }
 
 //Creates clickable button that opens up in app purchases
-function shopButton(){
+function shopButton() {
+
 }
 
 //Creates clikcable button that opens up differnt settings (game volume settings, idea how to play)
-function settingsButton(){
+function settingsButton() {
+
 }
 
 //SHOP
-function shop(){
+function shop() {
   background(100, 0, 200);
   fill(255);
   textSize(80);
-  text("to be continued!", windowWidth/2, windowHeight/2);
+  text("to be continued!", windowWidth / 2, windowHeight / 2);
 }
 
 //PLOT 1
-function plot1(){
+function plot1() {
   background(255, 255, 0);
   fill(0);
   textAlign(CENTRE);
@@ -80,17 +92,17 @@ function plot1(){
 }
 
 //PLOT 2
-function plot2(){
+function plot2() {
   background(0, 125, 0);
   fill(255);
   textSize(80);
-  text("to be continued!", windowWidth/2., windowHeight/2);
+  text("to be continued!", windowWidth / 2., windowHeight / 2);
 }
 
-function stateChange(){
-  if (keyIsPressed && keyCode === LEFT_AAROW){
+function stateChange() {
+  if (keyIsPressed && keyCode === LEFT_AAROW) {
     state === 3;
-  } else if (keyIsPressed && keyCode === RIGHT_ARROW){
+  } else if (keyIsPressed && keyCode === RIGHT_ARROW) {
     state === 4;
   }
 }
