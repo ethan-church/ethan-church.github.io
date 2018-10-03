@@ -76,8 +76,10 @@ function startButton() {
   fill(34, 161, 183);
   strokeWeight(windowWidth/300)
   stroke(255);
+  rectMode(CENTER);
   rect(windowWidth/2, windowHeight/2, windowWidth/8, windowHeight/13, 45)
   textSize(windowWidth/35);
+  rectMode(CENTER);
   text("Start", windowWidth/2, windowHeight/2)
 }
 
