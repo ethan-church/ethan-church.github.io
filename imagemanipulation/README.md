@@ -2,7 +2,7 @@
 
 Install the following packages (Atom Settings/Preferences -> Install):
 - p5js-snippets
-- cs30-p5js-toolbar
+- p5js-toolbar
 - atom-beautify
   - once installed, open Settings -> Packages -> atom-beautify Settings
   - select JavaScript -> Brace style -> end-expand
@@ -14,10 +14,9 @@ On Windows, add context menu to Windows Explorer by:
 
 ## For Each New Project
 
-- make a copy of this template folder (can simply click the New Project button in the toolbar)
+- make a copy of this template folder
 - rename the folder to whatever you want your project to be called (your project will be at yourusername.github.io/projectname)
 - move the newly renamed template folder into your GitHub repository folder
-- add a link to your homepage (`index.html` in root directory) to this folder
 - edit `sketch.js` with your p5js code
 - commit your changes to GitHub (via the GitHub desktop app)
 - push your changes to the server
