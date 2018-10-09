@@ -83,6 +83,15 @@ function startButton() {
   textAlign(CENTER,CENTER);
   textSize(windowWidth/35);
   text("Start", windowWidth/2, windowHeight/2)
+  if (mouseIsPressed && ){
+    state = 3;
+  }
+}
+
+function mousePressed(){
+  if(state === 1 && mouseX < 100 && mouseY < 100){
+    doThing();
+  }
 }
 
 //Creates clickable button that opens up in app purchases
