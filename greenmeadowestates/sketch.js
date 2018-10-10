@@ -31,7 +31,7 @@ function draw() {
   homeScreen();
   // determineState();
   // stateChange();
-  //  image(menu, 0, 0, windowWidth, windowHeight);
+  // image(menu, 0, 0, windowWidth, windowHeight);
 }
 
 //Creates main home page that opens up when game is started
@@ -39,8 +39,8 @@ function homeScreen() {
   startScreenBackground();
   startScreenLogo();
   startButton();
-  shopButton();
-  settingsButton();
+  // shopButton();
+  // settingsButton();
 }
 
 //Determines exactly which menu screen the player is in.
@@ -72,30 +72,23 @@ function startScreenLogo(){
 
 //Creates start button that is clickable and brings you to different pages
 function startButton() {
-  image(startbutton, 0, 0, windowWidth/2, windowHeight/2)
   fill(34, 161, 183);
-  strokeWeight(windowWidth/300)
+  strokeWeight(windowWidth/300);
   stroke(255);
   rectMode(CENTER);
-  rect(windowWidth/2, windowHeight/2, windowWidth/8, windowHeight/13, 45)
+  rect(windowWidth/2, windowHeight/2, windowWidth/8, windowHeight/13, 45);
   fill(0);
   noStroke();
   textAlign(CENTER,CENTER);
   textSize(windowWidth/35);
-  text("Start", windowWidth/2, windowHeight/2)
-  if (mouseIsPressed && ){
-    state = 3;
-  }
-}
-
-function mousePressed(){
-  if(state === 1 && mouseX < 100 && mouseY < 100){
-    doThing();
-  }
+  text("Start", windowWidth/2, windowHeight/2);
 }
 
 //Creates clickable button that opens up in app purchases
 function shopButton() {
+  // image(shopbutton, windowWidth/2, windowHeight/1.8, windowWidth/15, windowWidth/15);
+  fill(34, 161, 183);
+  ellipse(windowWidth/2, windowHeight/1.8, windowWidth/15, windowWidth/15)
 
 }
 
