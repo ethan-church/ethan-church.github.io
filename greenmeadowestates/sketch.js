@@ -25,7 +25,7 @@ function preload() {
 
 function setup() {
   let theWidth = windowWidth;
-  let theHeight = (9/16)*windowHeight;
+  let theHeight = (9 / 16) * windowWidth;
   createCanvas(theWidth, theHeight);
   state = 1;
   console.log(state);
@@ -54,7 +54,7 @@ function determineState() {
 //Creates main home page that opens up when game is started
 function homeScreen() {
   image(startscreenbackground, 0, 0, theWidth, theHeight);
-  image(logo, 50, 30, theWidth/3, theHeight/3);
+  image(logo, 50, 30, theWidth / 3, theHeight / 3);
   startButton();
   //shopButton();
   //settingsButton();
@@ -65,20 +65,20 @@ function homeScreen() {
 //Creates start button that is clickable and brings you to farm plot 1
 function startButton() {
   fill(34, 161, 183);
-  strokeWeight(theWidth/300);
+  strokeWeight(theWidth / 300);
   stroke(255);
   rectMode(CENTER);
-  rect(theWidth/2, theHeight/2, theWidth/6, theHeight/10, 45);
+  rect(theWidth / 2, theHeight / 2, theWidth / 6, theHeight / 10, 45);
   fill(0);
   noStroke();
-  textAlign(CENTER,CENTER);
-  textSize(theWidth/27);
-  text("START", theWidth/2, theHeight/2);
+  textAlign(CENTER, CENTER);
+  textSize(theWidth / 27);
+  text("START", theWidth / 2, theHeight / 2);
 }
 
 //Creates clickable button that opens up in app purchases
 function shopButton() {
-  image(shopbutton, theWidth/2, theHeight/2, 500, 500);
+  image(shopbutton, theWidth / 2, theHeight / 2, 500, 500);
   // fill(34, 161, 183);
   // ellipse(theWidth/2, theHeight/1.8, theWidth/15, theWidth/15)
 
@@ -86,7 +86,7 @@ function shopButton() {
 
 //Creates clikcable button that opens up differnt settings (game volume settings, idea how to play)
 function settingsButton() {
-  image(settingsbutton, theWidth/2, theHeight/2, theWidth/15, theWidth/15)
+  image(settingsbutton, theWidth / 2, theHeight / 2, theWidth / 15, theWidth / 15)
 }
 
 //SHOP
