@@ -85,7 +85,7 @@ function shopButton() {
 
 //Creates clikcable button that opens up differnt settings (game volume settings, idea how to play)
 function settingsButton() {
-  image(settingsbutton, theWidth /2, theHeight / 1.78, theWidth / 20, theWidth /20)
+  image(settingsbutton, theWidth / 2, theHeight / 1.78, theWidth / 20, theWidth / 20)
 }
 
 //SHOP
@@ -115,13 +115,13 @@ function plot2() {
 
 //Changes states with arrow keys
 function stateChange() {
-    if (state > 1 && keyIsPressed && keyCode === LEFT_ARROW) {
-   state -= 1;
-   keyIsPressed = false;
+  if (state > 1 && keyIsPressed && keyCode === LEFT_ARROW) {
+    state -= 1;
+    keyIsPressed = false;
     console.log(state);
- } else if (state < 4 && keyIsPressed && keyCode === RIGHT_ARROW) {
-  state += 1;
-   keyIsPressed = false;
+  } else if (state < 4 && keyIsPressed && keyCode === RIGHT_ARROW) {
+    state += 1;
+    keyIsPressed = false;
     console.log(state);
   }
 }
