@@ -24,11 +24,10 @@ function preload() {
 }
 
 function setup() {
-  let theWidth = windowWidth;
-  let theHeight = (9 / 16) * windowWidth;
+  theWidth = windowWidth;
+  theHeight = (9 / 16) * windowWidth;
   createCanvas(theWidth, theHeight);
   state = 1;
-  console.log(state);
 }
 
 function draw() {
@@ -56,8 +55,8 @@ function homeScreen() {
   image(startscreenbackground, 0, 0, theWidth, theHeight);
   image(logo, 50, 30, theWidth / 3, theHeight / 3);
   startButton();
-  //shopButton();
-  //settingsButton();
+  shopButton();
+  settingsButton();
 }
 
 //START MENU BUTTONS
@@ -78,7 +77,7 @@ function startButton() {
 
 //Creates clickable button that opens up in app purchases
 function shopButton() {
-  image(shopbutton, theWidth / 2, theHeight / 2, 500, 500);
+  image(shopbutton, theWidth / 2.25, theHeight / 1.78, theWidth / 20, theWidth / 20)
   // fill(34, 161, 183);
   // ellipse(theWidth/2, theHeight/1.8, theWidth/15, theWidth/15)
 
@@ -86,7 +85,7 @@ function shopButton() {
 
 //Creates clikcable button that opens up differnt settings (game volume settings, idea how to play)
 function settingsButton() {
-  image(settingsbutton, theWidth / 2, theHeight / 2, theWidth / 15, theWidth / 15)
+  image(settingsbutton, theWidth /2, theHeight / 1.78, theWidth / 20, theWidth /20)
 }
 
 //SHOP
@@ -116,13 +115,13 @@ function plot2() {
 
 //Changes states with arrow keys
 function stateChange() {
-  if (state > 1 && keyIsPressed && keyCode === LEFT_ARROW) {
-    state -= 1;
-    keyIsPressed = false;
+    if (state > 1 && keyIsPressed && keyCode === LEFT_ARROW) {
+   state -= 1;
+   keyIsPressed = false;
     console.log(state);
-  } else if (state < 4 && keyIsPressed && keyCode === RIGHT_ARROW) {
-    state += 1;
-    keyIsPressed = false;
+ } else if (state < 4 && keyIsPressed && keyCode === RIGHT_ARROW) {
+  state += 1;
+   keyIsPressed = false;
     console.log(state);
   }
 }
