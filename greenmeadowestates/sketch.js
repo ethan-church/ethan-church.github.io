@@ -13,9 +13,10 @@ Later build on menu screen and creating own chatecter, etc.
 
 let state;
 let theWidth, theHeight;
-let money, moneyPlus;
+let money, moneyPlus, level;
 
 function preload() {
+  startmenump3 = loadSound("assets/startmenu.mp3");
   menu = loadImage("assets/startscreen.png");
   settingsbutton = loadImage("assets/settingsbutton.png");
   shopbutton = loadImage("assets/shopbutton.png");
@@ -32,6 +33,7 @@ function setup() {
   state = 1;
   money = 0;
   moneyPlus = 1;
+  level = 0;
 }
 
 function draw() {
@@ -133,6 +135,14 @@ function mouseClicked(){
   if (state === 2){
     money += moneyPlus;
   } else if  (state === 3 && money >= 10){
-    moneyPlus += 9
+    if (level >= 1){
+      moneyPlus += 10;
+      money -= 10;
+    } else {
+    moneyPlus += 9;
+    money -= 10;
+    level = 1;
+  }
+    console.log(level);
   }
 }
