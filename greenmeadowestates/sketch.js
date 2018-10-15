@@ -13,6 +13,7 @@ Later build on menu screen and creating own chatecter, etc.
 
 let state;
 let theWidth, theHeight;
+let money, moneyPlus;
 
 function preload() {
   menu = loadImage("assets/startscreen.png");
@@ -21,6 +22,7 @@ function preload() {
   startbutton = loadImage("assets/startbutton.png");
   startscreenbackground = loadImage("assets/startscreenbackground.png");
   logo = loadImage("assets/greenmeadowsestatelogo.png");
+  barn1 = loadImage("assets/barn1.jpg");
 }
 
 function setup() {
@@ -28,6 +30,8 @@ function setup() {
   theHeight = (9 / 16) * windowWidth;
   createCanvas(theWidth, theHeight);
   state = 1;
+  money = 0;
+  moneyPlus = 1;
 }
 
 function draw() {
@@ -41,9 +45,10 @@ function determineState() {
     homeScreen();
   } else if (state === 2) {
     plot1();
-  } else if (state === 3) {
-    plot2();
+    text("$" + money, theWidth/2, theHeight/5);
   } else if (state === 4) {
+    plot2();
+  } else if (state === 3) {
     shop();
   } else {
     //extras
@@ -92,13 +97,13 @@ function settingsButton() {
 function shop() {
   background(100, 0, 200);
   fill(255);
-  textSize(80);
-  text("To Be Continued!", theWidth / 2, theHeight / 2);
+  textSize(30);
+  text("Buy Upgrade?  $10", theWidth / 2, theHeight / 2);
 }
 
 //PLOT 1
 function plot1() {
-  background(255, 255, 0);
+  image(barn1, 0, 0, theWidth, theHeight);
   fill(0);
   textAlign(CENTER);
   textSize(80);
@@ -118,10 +123,16 @@ function stateChange() {
   if (state > 1 && keyIsPressed && keyCode === LEFT_ARROW) {
     state -= 1;
     keyIsPressed = false;
-    console.log(state);
   } else if (state < 4 && keyIsPressed && keyCode === RIGHT_ARROW) {
     state += 1;
     keyIsPressed = false;
-    console.log(state);
+  }
+}
+
+function mouseClicked(){
+  if (state === 2){
+    money += moneyPlus;
+  } else if  (state === 3 && money >= 10){
+    moneyPlus += 9
   }
 }
