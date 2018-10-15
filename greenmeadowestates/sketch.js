@@ -63,7 +63,7 @@ function homeScreen() {
   image(logo, 50, 30, theWidth / 3, theHeight / 3);
   startButton();
   shopButton();
-  settingsButton();
+  // settingsButton();
 }
 
 //START MENU BUTTONS
@@ -85,9 +85,9 @@ function startButton() {
 //Creates clickable button that opens up in app purchases
 function shopButton() {
   image(shopbutton, theWidth / 2.25, theHeight / 1.78, theWidth / 20, theWidth / 20)
-  // fill(34, 161, 183);
-  // ellipse(theWidth/2, theHeight/1.8, theWidth/15, theWidth/15)
-
+  if (state === 1 && mouseX >= theWidth / 2.25 && mouseX <= theWidth / 20 && mouseY >= theHeight / 1.78 && theHeight / 20){
+    state = 3;
+  }
 }
 
 //Creates clikcable button that opens up differnt settings (game volume settings, idea how to play)
@@ -122,17 +122,19 @@ function plot2() {
 
 //Changes states with arrow keys
 function stateChange() {
-  if (state > 1 && keyIsPressed && keyCode === LEFT_ARROW) {
+  if (state > 2 && keyIsPressed && keyCode === LEFT_ARROW) {
     state -= 1;
     keyIsPressed = false;
-  } else if (state < 4 && keyIsPressed && keyCode === RIGHT_ARROW) {
+  } else if (state < 4 && keyIsPressed && keyCode === RIGHT_ARROW && state != 1) {
     state += 1;
     keyIsPressed = false;
   }
 }
 
 function mouseClicked(){
-  if (state === 2){
+  if (state === 1 && mouseX >= theWidth/2 - theWidth / 12 && mouseX <= theWidth/2 + theWidth / 12 && mouseY >= theHeight / 2 - theHeight/20 && mouseY <= theHeight / 2 + theHeight/20){
+    state = 2;
+  } else if (state === 2){
     money += moneyPlus;
   } else if  (state === 3 && money >= 10){
     if (level >= 1){
