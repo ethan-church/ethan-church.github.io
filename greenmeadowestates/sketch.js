@@ -8,8 +8,10 @@ The mouse clicking will opperate the differnt menu screens, kinda like in papa's
 For now just starts in the farm with simplified controls like cutting crops, etc.
 Later build on menu screen and creating own chatecter, etc.
 */
+//The state variabke is needed to create differnt areas/screens you can be on. Will be more obvious as the game continues to grow.
+//
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// Made cool logo, and added music i guess ;)
 
 let state;
 let theWidth, theHeight;
@@ -27,6 +29,7 @@ function preload() {
 }
 
 function setup() {
+  startmenump3.loop();
   theWidth = windowWidth;
   theHeight = (9 / 16) * windowWidth;
   createCanvas(theWidth, theHeight);
@@ -47,7 +50,7 @@ function determineState() {
     homeScreen();
   } else if (state === 2) {
     plot1();
-    text("$" + money, theWidth/2, theHeight/5);
+    text("$" + money, theWidth / 2, theHeight / 5);
   } else if (state === 4) {
     plot2();
   } else if (state === 3) {
@@ -62,7 +65,7 @@ function homeScreen() {
   image(startscreenbackground, 0, 0, theWidth, theHeight);
   image(logo, 50, 30, theWidth / 3, theHeight / 3);
   startButton();
-  shopButton();
+  // shopButton();
   // settingsButton();
 }
 
@@ -85,7 +88,7 @@ function startButton() {
 //Creates clickable button that opens up in app purchases
 function shopButton() {
   image(shopbutton, theWidth / 2.25, theHeight / 1.78, theWidth / 20, theWidth / 20)
-  if (state === 1 && mouseX >= theWidth / 2.25 && mouseX <= theWidth / 20 && mouseY >= theHeight / 1.78 && theHeight / 20){
+  if (state === 1 && mouseX >= theWidth / 2.25 && mouseX <= theWidth / 20 && mouseY >= theHeight / 1.78 && theHeight / 20) {
     state = 3;
   }
 }
@@ -131,20 +134,20 @@ function stateChange() {
   }
 }
 
-function mouseClicked(){
-  if (state === 1 && mouseX >= theWidth/2 - theWidth / 12 && mouseX <= theWidth/2 + theWidth / 12 && mouseY >= theHeight / 2 - theHeight/20 && mouseY <= theHeight / 2 + theHeight/20){
+function mouseClicked() {
+  if (state === 1 && mouseX >= theWidth / 2 - theWidth / 12 && mouseX <= theWidth / 2 + theWidth / 12 && mouseY >= theHeight / 2 - theHeight / 20 && mouseY <= theHeight / 2 + theHeight / 20) {
     state = 2;
-  } else if (state === 2){
+  } else if (state === 2) {
     money += moneyPlus;
-  } else if  (state === 3 && money >= 10){
-    if (level >= 1){
+  } else if (state === 3 && money >= 10) {
+    if (level >= 1) {
       moneyPlus += 10;
       money -= 10;
     } else {
-    moneyPlus += 9;
-    money -= 10;
-    level = 1;
-  }
+      moneyPlus += 9;
+      money -= 10;
+      level = 1;
+    }
     console.log(level);
   }
 }
