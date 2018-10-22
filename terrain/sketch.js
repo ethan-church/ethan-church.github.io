@@ -1,6 +1,6 @@
-// Project Title
-// Your Name
-// Date
+// Terrain
+// Ethan Church
+// October 22, 2018
 
 let numberOfRects;
 let rectWidth;
