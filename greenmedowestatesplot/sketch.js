@@ -32,9 +32,10 @@ function createRandom2dArray(cols, rows){
   for (y = 0; y < rows; y++){
     randomGrid.push([]);
     for (let x = 0; x < cols; x++){
-      randomGrid[y].push(
-      whenPlanted: millis(),
-      currentState: 0,);
+      randomGrid[y].push({
+        whenPlanted: 0,
+        currentState: 1,
+       });
     }
   }
   return randomGrid;
@@ -44,13 +45,13 @@ function createRandom2dArray(cols, rows){
 function displayPlot(){
   for(let i = 0; i < rows; i++){
     for(let j = 0; j < cols; j++){
-      if (grid[i][j] === 0){
+      if (grid[i][j].currentState === 0){
         fill(107,142,35);
-      } else if (grid[i][j] === 1){
+      } else if (grid[i][j].currentState === 1){
         fill(139, 69, 19);
-      } else if (grid[i][j] === 2){
+      } else if (grid[i][j].currentState === 2){
         fill(128,128,0);
-      } else if (grid[i][j] === 3){
+      } else if (grid[i][j].currentState === 3){
         fill(204,195,0);
       }
       rect(i * cellSize, j * cellSize, cellSize, cellSize);
@@ -62,11 +63,9 @@ function displayPlot(){
 function mousePressed() {
   let x = floor(mouseX / cellSize);
   let y = floor(mouseY / cellSize);
-  if (grid[x][y] === 1) {
-    grid[x][y] = 0;
-  }
-  else if (grid[x][y] === 0) {
-    grid[x][y] = 1;
+  if (grid[x][y].currentState === 1) {
+    grid[x][y].currentState = 0;
+    grid[x][y].whenPlanted = millis();
   }
 }
 
