@@ -82,6 +82,14 @@ function timeToFarm(){
   }
 }
 
-
-
 //If mouse is dragged change colors
+function mouseDragged(){
+  let x = floor(mouseX / cellSize);
+  let y = floor(mouseY / cellSize);
+  if (grid[x][y].currentState === 0){
+  grid[x][y].currentState = 1;
+  grid[x][y].whenPlanted = millis();
+  } else if (grid[x][y].currentState === 2){
+  grid[x][y].currentState = 0;
+  }
+}

@@ -56,7 +56,6 @@ function determineState() {
     homeScreen();
   } else if (state === 2) {
     plot1();
-    text("$" + money, theWidth / 2, theHeight / 5);
   } else if (state === 4) {
     plot2();
   } else if (state === 3) {
@@ -140,18 +139,6 @@ function stateChange() {
 function mouseClicked() {
   if (state === 1 && mouseX >= theWidth / 2 - theWidth / 12 && mouseX <= theWidth / 2 + theWidth / 12 && mouseY >= theHeight / 2 - theHeight / 20 && mouseY <= theHeight / 2 + theHeight / 20) {
     state = 2;
-  } else if (state === 2) {
-    money += moneyPlus;
-  } else if (state === 3 && money >= 10) {
-    if (level >= 1) {
-      moneyPlus += 10;
-      money -= 10;
-    } else {
-      moneyPlus += 9;
-      money -= 10;
-      level = 1;
-    }
-    console.log(level);
   }
 }
 
@@ -213,3 +200,13 @@ function timeToFarm(){
 
 
 //If mouse is dragged change colors
+function mouseDragged(){
+  let x = floor(mouseX / cellSize);
+  let y = floor(mouseY / cellSize);
+  if (state === 2 && grid[x][y].currentState === 0){
+  grid[x][y].currentState = 1;
+  grid[x][y].whenPlanted = millis();
+} else if (state === 2 && grid[x][y].currentState === 2){
+  grid[x][y].currentState = 0;
+  }
+}
