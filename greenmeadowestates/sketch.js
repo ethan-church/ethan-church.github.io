@@ -173,7 +173,7 @@ function displayPlot(){
   }
 }
 
-//changes individual cell change color if you click and plant a seed\
+//changes individual cell change color if you click and plant a seed
 function mousePressed() {
   let x = floor(mouseX / cellSize);
   let y = floor(mouseY / cellSize);
@@ -196,8 +196,6 @@ function timeToFarm(){
     }
   }
 }
-
-
 
 //If mouse is dragged change colors
 function mouseDragged(){
