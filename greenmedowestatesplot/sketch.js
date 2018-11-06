@@ -15,16 +15,11 @@ let theWidth, theHeight;
 
 
 function setup() {
-  if (windowWidth > widowHeight){
-  theWidth = (9 / 16) * windowHeight;
-  theHeight = windowHeight;
-  } else {
   theWidth = windowWidth;
   theHeight = (9 / 16) * windowWidth;
   createCanvas(theWidth, theHeight);
   cellSize = theHeight / cols;
   grid = createRandom2dArray(cols, rows);
-  }
 }
 
 function draw() {
