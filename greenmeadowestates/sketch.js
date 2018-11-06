@@ -37,6 +37,7 @@ function setup() {
   theWidth = windowWidth;
   theHeight = (9 / 16) * windowWidth;
   createCanvas(theWidth, theHeight);
+  background(220);
   state = 1;
   money = 0;
   moneyPlus = 1;

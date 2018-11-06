@@ -15,9 +15,15 @@ let theWidth, theHeight;
 
 
 function setup() {
-  theWidth = windowWidth;
-  theHeight = (9 / 16) * windowWidth;
-  createCanvas(theWidth, theHeight);
+  if (windowWidth > windowHeight){
+    theWidth = windowWidth;
+    theHeight = (9 / 16) * windowWidth;
+    createCanvas(theWidth, theHeight);
+  } else {
+    theHeight = windowHeight;
+    theWidth = (9 / 16) * windowHeight;
+    createcanvas(theWidth, theHeight);
+  }
   cellSize = theHeight / cols;
   grid = createRandom2dArray(cols, rows);
 }
