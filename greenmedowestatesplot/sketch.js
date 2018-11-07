@@ -16,14 +16,15 @@ let theWidth, theHeight;
 
 function setup() {
   if (windowWidth > windowHeight){
-    theWidth = windowWidth;
-    theHeight = (9 / 16) * windowWidth;
-    createCanvas(theWidth, theHeight);
-  } else {
+    theWidth = windowHeight * (16/9);
     theHeight = windowHeight;
-    theWidth = (9 / 16) * windowHeight;
-    createcanvas(theWidth, theHeight);
+    console.log("Width is bigger");
+  } else {
+    theWidth = windowWidth;
+    theHeight = windowWidth * (9/16);
+    console.log("Height is Bigger");
   }
+  createCanvas(theWidth, theHeight);
   cellSize = theHeight / cols;
   grid = createRandom2dArray(cols, rows);
 }
