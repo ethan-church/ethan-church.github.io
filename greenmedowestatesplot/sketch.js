@@ -15,17 +15,18 @@ let theWidth, theHeight;
 
 
 function setup() {
+  //checks to see wether windowHeight or windowWidth is bigger so you can always see the whole grid.
   if (windowWidth > windowHeight){
     theWidth = windowHeight * (16/9);
     theHeight = windowHeight;
-    console.log("Width is bigger");
+    cellSize = theHeight / cols;
   } else {
     theWidth = windowWidth;
-    theHeight = windowWidth * (9/16);
-    console.log("Height is Bigger");
+    theHeight = windowWidth * (16 / 9);
+    cellSize = theWidth / cols;
   }
+  // creates canvas and grid.
   createCanvas(theWidth, theHeight);
-  cellSize = theHeight / cols;
   grid = createRandom2dArray(cols, rows);
 }
 
