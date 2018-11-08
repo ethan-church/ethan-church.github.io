@@ -30,10 +30,11 @@ function setup() {
   //   theHeight = windowWidth * (16 / 9);
   //   cellSize = theWidth / cols;
   // }
-theWidth = 800;
-theHeight = 800;
+theWidth = 600;
+theHeight = 600;
+cellSize = theWidth / cols;
   // creates canvas and grid.
-  createCanvas(800, 800);
+  createCanvas(theWidth, theHeight);
   grid = createRandom2dArray(cols, rows);
 }
 
