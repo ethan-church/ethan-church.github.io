@@ -34,8 +34,8 @@ function preload() {
 
 function setup() {
   startmenump3.loop();
-  theWidth = windowWidth;
-  theHeight = (9 / 16) * windowWidth;
+  // theWidth = windowWidth;
+  // theHeight = (9 / 16) * windowWidth;
   createCanvas(theWidth, theHeight);
   background(220);
   state = 1;

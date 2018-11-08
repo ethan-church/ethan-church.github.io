@@ -13,20 +13,27 @@ let grid;
 let cellSize;
 let theWidth, theHeight;
 
+function preload(){
+  seeds = loadImage("assets/seeds.png");
+  hoe = loadImage("assets/Hoe.png");
+}
+
 
 function setup() {
-  //checks to see wether windowHeight or windowWidth is bigger so you can always see the whole grid.
-  if (windowWidth > windowHeight){
-    theWidth = windowHeight * (16/9);
-    theHeight = windowHeight;
-    cellSize = theHeight / cols;
-  } else {
-    theWidth = windowWidth;
-    theHeight = windowWidth * (16 / 9);
-    cellSize = theWidth / cols;
-  }
+  //checks to see wether windowHeight or windowWidth is bigger so you can always see the whole grid. WORKS!!!
+  // if (windowWidth > windowHeight){
+  //   theWidth = windowHeight * (16/9);
+  //   theHeight = windowHeight;
+  //   cellSize = theHeight / cols;
+  // } else {
+  //   theWidth = windowWidth;
+  //   theHeight = windowWidth * (16 / 9);
+  //   cellSize = theWidth / cols;
+  // }
+theWidth = 800;
+theHeight = 800;
   // creates canvas and grid.
-  createCanvas(theWidth, theHeight);
+  createCanvas(800, 800);
   grid = createRandom2dArray(cols, rows);
 }
 
