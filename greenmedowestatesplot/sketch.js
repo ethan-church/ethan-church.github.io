@@ -10,16 +10,18 @@
 let rows = 10;
 let cols = 10;
 let grid;
-let cellSize;
+let cellSize, cellWidth;
 let theWidth, theHeight;
+let farmingAbility;
 
 function preload(){
+  startmenump3 = loadSound("assets/startmenu.mp3");
   seeds = loadImage("assets/seeds.png");
-  hoe = loadImage("assets/Hoe.png");
 }
 
 
 function setup() {
+  startmenump3.loop();
   //checks to see wether windowHeight or windowWidth is bigger so you can always see the whole grid. WORKS!!!
   // if (windowWidth > windowHeight){
   //   theWidth = windowHeight * (16/9);
@@ -30,9 +32,12 @@ function setup() {
   //   theHeight = windowWidth * (16 / 9);
   //   cellSize = theWidth / cols;
   // }
-theWidth = 600;
-theHeight = 600;
-cellSize = theWidth / cols;
+theWidth = 700;
+theHeight = 700;
+cellWidth = theWidth - 100;
+cellSize =  cellWidth / cols;
+crops = 10;
+farmingAbility = 1;
   // creates canvas and grid.
   createCanvas(theWidth, theHeight);
   grid = createRandom2dArray(cols, rows);
@@ -41,6 +46,7 @@ cellSize = theWidth / cols;
 function draw() {
   displayPlot();
   timeToFarm();
+  displaySeedCount();
 }
 
 //Creates original array
@@ -56,6 +62,11 @@ function createRandom2dArray(cols, rows){
     }
   }
   return randomGrid;
+}
+
+function displaySeedCount(){
+  text (crops, 610, 35);
+  image(seeds, 670, 5, 30, 35);
 }
 
 //Creates Grid
@@ -78,11 +89,13 @@ function displayPlot(){
 function mousePressed() {
   let x = floor(mouseX / cellSize);
   let y = floor(mouseY / cellSize);
-  if (grid[x][y].currentState === 0) {
+  if (farmingAbility === 1 && crops >= 1&& grid[x][y].currentState === 0) {
     grid[x][y].currentState = 1;
     grid[x][y].whenPlanted = millis();
+    crops --;
   }
-  if (grid[x][y].currentState === 2){
+  if (farmingAbility === 2 && grid[x][y].currentState === 2){
+    crops += 2;
     grid[x][y].currentState = 0;
   }
 }
@@ -91,7 +104,7 @@ function mousePressed() {
 function timeToFarm(){
   for (let i = 0; i < rows; i++){
     for (let j = 0; j < cols; j++){
-      if ( grid[i][j].currentState === 1 && millis() > grid[i][j].whenPlanted + random(15*1000, 25*1000)){
+      if (grid[i][j].currentState === 1 && millis() > grid[i][j].whenPlanted + random(15*1000, 25*1000)){
         grid[i][j].currentState = 2;
       }
     }
@@ -102,10 +115,20 @@ function timeToFarm(){
 function mouseDragged(){
   let x = floor(mouseX / cellSize);
   let y = floor(mouseY / cellSize);
-  if (grid[x][y].currentState === 0){
+  if (farmingAbility === 1 && crops >= 1 && grid[x][y].currentState === 0){
   grid[x][y].currentState = 1;
   grid[x][y].whenPlanted = millis();
-  } else if (grid[x][y].currentState === 2){
+  crops--;
+} else if ( farmingAbility === 2 && grid[x][y].currentState === 2){
   grid[x][y].currentState = 0;
+  crops+= 2;
+  }
+}
+
+function keyPressed(){
+  if (keyCode === 83){
+    farmingAbility = 1;
+  } else if (keyCode === 70){
+    farmingAbility = 2;
   }
 }
