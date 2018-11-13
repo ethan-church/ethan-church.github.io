@@ -21,7 +21,7 @@ function preload() {
 
 
 function setup() {
-  startmenump3.loop();
+  //startmenump3.loop();
   //checks to see wether windowHeight or windowWidth is bigger so you can always see the whole grid. WORKS!!!
   // if (windowWidth > windowHeight){
   //   theWidth = windowHeight * (16/9);
@@ -68,9 +68,14 @@ function createRandom2dArray(cols, rows) {
 function displaySeedCount() {
   fill(255);
   rect(610, 5,35,35);
+  if (crops < 10){
+    fill(139,69,19);
+    text(crops, 620, 33);
+  } else {
   fill(139, 69, 19);
   text(crops, 610, 33);
   textSize(30);
+  }
 }
 
 //Creates Grid
@@ -93,14 +98,21 @@ function displayPlot() {
 function mousePressed() {
   let x = floor(mouseX / cellSize);
   let y = floor(mouseY / cellSize);
-  if (farmingAbility === 1 && crops >= 1 && grid[x][y].currentState === 0) {
-    grid[x][y].currentState = 1;
-    grid[x][y].whenPlanted = millis();
-    crops--;
-  }
-  if (farmingAbility === 2 && grid[x][y].currentState === 2) {
-    crops += 2;
-    grid[x][y].currentState = 0;
+  // if (farmingAbility === 1 && crops >= 1 && grid[x][y].currentState === 0) {
+  //   grid[x][y].currentState = 1;
+  //   grid[x][y].whenPlanted = millis();
+  //   crops--;
+  // }
+  // if (farmingAbility === 2 && grid[x][y].currentState === 2) {
+  //   crops += 2;
+  //   grid[x][y].currentState = 0;
+  // }
+
+// Creates clickable buttons to change tools used. (Hoe, Seeds)
+  if (mouseX >= 630 && mouseY >= 160 && mouseX <= 680 && mouseY <= 225){
+    farmingAbility = 2;
+  } else if (mouseX >= 310 && mouseY >= 220 && mouseX <= 680 && mouseY <= 350){
+    farmingAbility = 1;
   }
 }
 
