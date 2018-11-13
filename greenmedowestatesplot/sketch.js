@@ -43,7 +43,7 @@ function setup() {
   // creates canvas and grid.
   createCanvas(theWidth, theHeight);
   grid = createRandom2dArray(cols, rows);
-  money = 0;
+  money = 100;
 }
 
 
@@ -52,7 +52,7 @@ function draw() {
   displayPlot();
   timeToFarm();
   displaySeedCount();
-  displayMoney();
+  // displayMoney();
 }
 
 //Creates original array
@@ -70,12 +70,20 @@ function createRandom2dArray(cols, rows) {
   return randomGrid;
 }
 
-function displayMoney(){
-  if (money < 10){
-    fill(139,69,19);
-    // text(money, ) not done yet
-  }
-}
+// function displayMoney(){
+//   if (money < 10){
+//     fill(139,69,19);
+//     text("$" + money, 630, 105);
+//   } else if (money >= 10){
+//     fill(139,69,19);
+//     text("$" + money, 625, 105);
+//     console.log("money is less then 100");
+//   } else if (money >= 100){
+//     fill(139,69,19);
+//     text("$" + money, 610, 105);
+//     console.log("money is more then 100");
+//   }
+// }
 
 function displaySeedCount() {
   fill(255);
@@ -125,12 +133,18 @@ function mousePressed() {
     farmingAbility = 2;
   } else if (mouseX >= 310 && mouseY >= 220 && mouseX <= 680 && mouseY <= 350){
     farmingAbility = 1;
-  } else if (mouseX >= 330 && mouseY >= 620 && mouseX <= 400 && mouseY <= 685){
+  } else if (money >= 1 && mouseX >= 330 && mouseY >= 620 && mouseX <= 400 && mouseY <= 685){
     money - 1;
     crops++;
-  } else if (mouseX >= 420 && mouseY >= 620 && mouseX <= 530 && mouseY <= 685){
+    // displayMoney();
+    console.log("1 Works");
+  } else if (money >= 2 && mouseX >= 420 && mouseY >= 620 && mouseX <= 530 && mouseY <= 685){
+    // displayMoney();
     money - 2;
     crops += 3;
+    console.log("3 Works");
+  } else {
+    console.log("You must not be in the hit box");
   }
 }
 
