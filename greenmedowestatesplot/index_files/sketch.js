@@ -16,6 +16,7 @@ let farmingAbility;
 
 function preload() {
   startmenump3 = loadSound("assets/startmenu.mp3");
+  seeds = loadImage("assets/seeds.png");
   farmbackground = loadImage("assets/farmbackground.png");
 }
 
@@ -71,6 +72,7 @@ function displaySeedCount() {
   fill(139, 69, 19);
   text(crops, 610, 33);
   textSize(30);
+  image(seeds, 670, 5, 30, 35);
 }
 
 //Creates Grid
