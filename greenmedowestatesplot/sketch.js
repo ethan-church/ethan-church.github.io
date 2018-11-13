@@ -13,6 +13,8 @@ let grid;
 let cellSize, cellWidth;
 let theWidth, theHeight;
 let farmingAbility;
+let money;
+let crops;
 
 function preload() {
   startmenump3 = loadSound("assets/startmenu.mp3");
@@ -41,13 +43,16 @@ function setup() {
   // creates canvas and grid.
   createCanvas(theWidth, theHeight);
   grid = createRandom2dArray(cols, rows);
+  money = 0;
 }
+
 
 function draw() {
   image(farmbackground, 0,0);
   displayPlot();
   timeToFarm();
   displaySeedCount();
+  displayMoney();
 }
 
 //Creates original array
@@ -63,6 +68,13 @@ function createRandom2dArray(cols, rows) {
     }
   }
   return randomGrid;
+}
+
+function displayMoney(){
+  if (money < 10){
+    fill(139,69,19);
+    // text(money, ) not done yet
+  }
 }
 
 function displaySeedCount() {
@@ -113,6 +125,12 @@ function mousePressed() {
     farmingAbility = 2;
   } else if (mouseX >= 310 && mouseY >= 220 && mouseX <= 680 && mouseY <= 350){
     farmingAbility = 1;
+  } else if (mouseX >= 330 && mouseY >= 620 && mouseX <= 400 && mouseY <= 685){
+    money - 1;
+    crops++;
+  } else if (mouseX >= 420 && mouseY >= 620 && mouseX <= 530 && mouseY <= 685){
+    money - 2;
+    crops += 3;
   }
 }
 
