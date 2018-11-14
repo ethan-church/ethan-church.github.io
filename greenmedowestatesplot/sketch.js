@@ -23,17 +23,7 @@ function preload() {
 
 
 function setup() {
-  //startmenump3.loop();
-  //checks to see wether windowHeight or windowWidth is bigger so you can always see the whole grid. WORKS!!!
-  // if (windowWidth > windowHeight){
-  //   theWidth = windowHeight * (16/9);
-  //   theHeight = windowHeight;
-  //   cellSize = theHeight / cols;
-  // } else {
-  //   theWidth = windowWidth;
-  //   theHeight = windowWidth * (16 / 9);
-  //   cellSize = theWidth / cols;
-  // }
+  startmenump3.loop();
   theWidth = 700;
   theHeight = 700;
   cellWidth = theWidth - 100;
@@ -43,7 +33,7 @@ function setup() {
   // creates canvas and grid.
   createCanvas(theWidth, theHeight);
   grid = createRandom2dArray(cols, rows);
-  money = 100;
+  money = 0;
 }
 
 
@@ -52,7 +42,7 @@ function draw() {
   displayPlot();
   timeToFarm();
   displaySeedCount();
-  // displayMoney();
+  displayMoney();
 }
 
 //Creates original array
@@ -70,20 +60,18 @@ function createRandom2dArray(cols, rows) {
   return randomGrid;
 }
 
-// function displayMoney(){
-//   if (money < 10){
-//     fill(139,69,19);
-//     text("$" + money, 630, 105);
-//   } else if (money >= 10){
-//     fill(139,69,19);
-//     text("$" + money, 625, 105);
-//     console.log("money is less then 100");
-//   } else if (money >= 100){
-//     fill(139,69,19);
-//     text("$" + money, 610, 105);
-//     console.log("money is more then 100");
-//   }
-// }
+function displayMoney(){
+  if (money < 10){
+    fill(139,69,19);
+    text("$" + money, 630, 105);
+  } else if (money >= 100){
+    fill(139,69,19);
+    text("$" + money, 617, 105);
+  } else if (money >= 10){
+    fill(139,69,19);
+    text("$" + money, 625, 105);
+  }
+}
 
 function displaySeedCount() {
   fill(255);
@@ -114,35 +102,31 @@ function displayPlot() {
   }
 }
 
-//changes individual cell change color if you click and plant a seed\
+//changes individual cell change color if you click and plant a seed. And addes clikable button for seeds.
 function mousePressed() {
   let x = floor(mouseX / cellSize);
   let y = floor(mouseY / cellSize);
-  // if (farmingAbility === 1 && crops >= 1 && grid[x][y].currentState === 0) {
-  //   grid[x][y].currentState = 1;
-  //   grid[x][y].whenPlanted = millis();
-  //   crops--;
-  // }
-  // if (farmingAbility === 2 && grid[x][y].currentState === 2) {
-  //   crops += 2;
-  //   grid[x][y].currentState = 0;
-  // }
 
 // Creates clickable buttons to change tools used. (Hoe, Seeds)
   if (mouseX >= 630 && mouseY >= 160 && mouseX <= 680 && mouseY <= 225){
     farmingAbility = 2;
   } else if (mouseX >= 310 && mouseY >= 220 && mouseX <= 680 && mouseY <= 350){
     farmingAbility = 1;
-  } else if (money >= 1 && mouseX >= 330 && mouseY >= 620 && mouseX <= 400 && mouseY <= 685){
-    money - 1;
+  } else if (money >= 5 && mouseX >= 330 && mouseY >= 620 && mouseX <= 400 && mouseY <= 685){
+    money -= 5;
     crops++;
-    // displayMoney();
-    console.log("1 Works");
-  } else if (money >= 2 && mouseX >= 420 && mouseY >= 620 && mouseX <= 530 && mouseY <= 685){
-    // displayMoney();
-    money - 2;
+  } else if (money >= 10 && mouseX >= 420 && mouseY >= 620 && mouseX <= 530 && mouseY <= 685){
+    money -= 10;
     crops += 3;
-    console.log("3 Works");
+  }else  if (farmingAbility === 1 && crops >= 1 && grid[x][y].currentState === 0) {
+      grid[x][y].currentState = 1;
+      grid[x][y].whenPlanted = millis();
+      crops--;
+  }else if (farmingAbility === 2 && grid[x][y].currentState === 2) {
+    crops ++;
+    money++;
+    grid[x][y].currentState = 0;
+    console.log("this is what is the problem!");
   } else {
     console.log("You must not be in the hit box");
   }
@@ -169,14 +153,7 @@ function mouseDragged() {
     crops--;
   } else if (farmingAbility === 2 && grid[x][y].currentState === 2) {
     grid[x][y].currentState = 0;
-    crops += 2;
-  }
-}
-
-function keyPressed() {
-  if (keyCode === 83) {
-    farmingAbility = 1;
-  } else if (keyCode === 70) {
-    farmingAbility = 2;
+    crops++;
+    money+= 1;
   }
 }
