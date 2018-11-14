@@ -5,7 +5,7 @@
 //Farm plot that as time goes on the fields will grow and you can harvest them.
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// Cool Designs??
 
 let rows = 10;
 let cols = 10;
