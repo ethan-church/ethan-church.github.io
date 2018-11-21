@@ -70,6 +70,7 @@ let state;
 let startMusic;
 let homeScreen;
 let startButton, startButtonDown;
+let clickableButton = false;
 
 //just for topview
 let ballArray = [];
@@ -97,7 +98,9 @@ function setup() {
 
 function mousePressed(){
   if(state === 0){
-    if (mouseX )
+    if (mouseX >= 250 && mouseY <= 360 && mouseX >= 450 && mouseY >= 570){
+      clickableButton = true;
+    }
     state = 1;
   }
   else if(state === 1 && mouseX < width/2){
@@ -160,6 +163,11 @@ function stateLord(){
 
 function startScreen(){
   image(homeScreen, 0, 0, 700, 700);
+  if (clickableButton = true){
+    image(startButton, 0, 0);
+  } else {
+    image(startButtonDown, 0, 0);
+  }
 }
 
 //display to pick gamemode
