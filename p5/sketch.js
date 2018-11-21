@@ -97,11 +97,10 @@ function setup() {
 //0,1,3,5,
 
 function mousePressed(){
-  if(state === 0){
-    if (mouseX >= 250 && mouseY <= 360 && mouseX >= 450 && mouseY >= 570){
+  if(state === 0 && mouseX >= 250 && mouseY <= 360 && mouseX >= 450 && mouseY >= 570){
       clickableButton = true;
+      state = 1;
     }
-    state = 1;
   }
   else if(state === 1 && mouseX < width/2){
     state = 2;
