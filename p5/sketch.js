@@ -12,13 +12,13 @@ class Ball{
     this.y = y;
     this.dx = aim;
     this.dy = power;
-    this.radius = 15;
+    this.radius = 7;
     this.color = color(255,255,255,255);
     this.done = false;
   }
   show(){
     fill(this.color);
-    ellipse(this.x, this.y, this.radius, this.radius);
+    ellipse(this.x, this.y, this.radius * 2, this.radius * 2);
   }
   update(){
     if(!this.done){
@@ -70,7 +70,6 @@ let state;
 let startMusic;
 let homeScreen;
 let startButton, startButtonDown;
-let clickableButton = false;
 
 //just for topview
 let ballArray = [];
@@ -97,12 +96,9 @@ function setup() {
 //0,1,3,5,
 
 function mousePressed(){
-  if(state === 0 && mouseX >= 250 && mouseY <= 360 && mouseX >= 450 && mouseY >= 570){
-      clickableButton = true;
+  if(state === 0 && mouseX >= 250 && mouseY >= 360 && mouseX <= 450 && mouseY <= 570){
       state = 1;
-    }
-  }
-  else if(state === 1 && mouseX < width/2){
+  } else if (state === 1 && mouseX < width/2){
     state = 2;
   }
   else if(state === 1 && mouseX > width/2){
@@ -162,10 +158,10 @@ function stateLord(){
 
 function startScreen(){
   image(homeScreen, 0, 0, 700, 700);
-  if (clickableButton = true){
-    image(startButton, 0, 0);
+  if (state === 0 && mouseX >= 250 && mouseY >= 360 && mouseX <= 450 && mouseY <= 570){
+    image(startButtonDown, 250, 360, 200, 210);
   } else {
-    image(startButtonDown, 0, 0);
+    image(startButton, 250, 360, 200, 210);
   }
 }
 
