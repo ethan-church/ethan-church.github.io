@@ -69,7 +69,7 @@ class Ball{
 let state;
 let startMusic;
 let homeScreen;
-let startButton, startButtonDown;
+let startButton, startButtonDown, altitudeMode, godMode, modeSwitcher;
 
 //just for topview
 let ballArray = [];
@@ -81,6 +81,9 @@ let power = -5;
 
 function preload(){
   //startMusic = loadSound(assets/nameofsonghere);
+  altitudeMode = loadImage("assets/altitudeMode.png");
+  godMode = loadImage("assets/godModeClicked.png");
+  modeSwitcher = loadImage("assets/modeSwitcher.png");
   homeScreen = loadImage("assets/golfhomescreen.png");
   startButton = loadImage("assets/golfballlogo.png");
   startButtonDown = loadImage("assets/golfballlogodown.png");
@@ -167,17 +170,7 @@ function startScreen(){
 
 //display to pick gamemode
 function pickMode(){
-  background(255,255,255);
-  fill(0,0,255);
-  rect(100,100,200,200);
-  fill(0,255,0);
-  textSize(25);
-  text("TOPVIEW", 100, 70);
-  fill(255,0,0);
-  rect(400,100,200,200);
-  fill(0,255,0);
-  textSize(25);
-  text("TERRAIN", 400, 70);
+  image(modeSwitcher, 700, 700);
 }
 
 //instructions for topview mode
