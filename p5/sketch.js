@@ -13,7 +13,7 @@ class Ball{
     this.dx = aim;
     this.dy = power;
     this.radius = 7;
-    this.color = color(255,255,255,255);
+    this.color = color(255);
     this.done = false;
   }
   show(){
