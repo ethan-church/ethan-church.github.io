@@ -170,12 +170,11 @@ function startScreen(){
 
 //display to pick gamemode
 function pickMode(){
-  if (state === 1 && mouseX >= 50 && mouseY >= 100 && mouseX <= 650 && mouseY <= 350){
-    image(godMode, 45, 150, 612, 211);
-  } else if (state === 1 && mouseX >= 50 && mouseY >= 450 && mouseX <= 650 && mouseY <= 650){
+  image(modeSwitcher, 0, 0, 700, 700);
+  if (state === 1 && mouseX >= 50 && mouseY >= 450 && mouseX <= 650 && mouseY <= 650){
     image(altitudeMode, 45, 445, 612, 211);
-  } else {
-      image(modeSwitcher, 0, 0, 700, 700);
+  } else  if (state === 1 && mouseX >= 50 && mouseY >= 100 && mouseX <= 650 && mouseY <= 350){
+    image(godMode, 45, 150, 612, 211);
   }
 }
 
