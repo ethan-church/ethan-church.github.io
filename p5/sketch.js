@@ -190,7 +190,7 @@ function otherInstructions(){
 }
 
 function topView(){
-  background(50,205,50);
+  image(golfBackground, 0, 0);
   for (let i=ballArray.length-1; i >= 0; i--){
     ballArray[i].update();
     ballArray[i].show();
