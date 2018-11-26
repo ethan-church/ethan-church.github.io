@@ -87,6 +87,7 @@ function preload(){
   homeScreen = loadImage("assets/golfhomescreen.png");
   startButton = loadImage("assets/golfballlogo.png");
   startButtonDown = loadImage("assets/golfballlogodown.png");
+  golfBackground = loadImage("assets/golfBackground.png");
 }
 
 function setup() {
