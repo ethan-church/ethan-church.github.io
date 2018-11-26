@@ -70,6 +70,7 @@ let state;
 let startMusic;
 let homeScreen;
 let startButton, startButtonDown, altitudeMode, godMode, modeSwitcher;
+let golfBackground, turnLeft, turnRight, slowDown, speedUp;
 
 //just for topview
 let ballArray = [];
@@ -88,6 +89,8 @@ function preload(){
   startButton = loadImage("assets/golfballlogo.png");
   startButtonDown = loadImage("assets/golfballlogodown.png");
   golfBackground = loadImage("assets/golfBackground.png");
+  turnLeft = loadImage("assets/turnLeft.png");
+  turnRight = loadImage("assets/turnRight.png");
 }
 
 function setup() {
@@ -102,10 +105,10 @@ function setup() {
 function mousePressed(){
   if(state === 0 && mouseX >= 250 && mouseY >= 360 && mouseX <= 450 && mouseY <= 570){
       state = 1;
-  } else if (state === 1 && mouseX < width/2){
+  } else if (state === 1 && mouseX >= 50 && mouseY >= 100 && mouseX <=650 && mouseY > 300){
     state = 2;
   }
-  else if(state === 1 && mouseX > width/2){
+  else if(state === 1 && mouseX >= 50 && mouseY >= 450 && mouseX<= 650 && mouseY <= 650){
     state = 3;
   }
   else if(state === 2){
@@ -114,8 +117,10 @@ function mousePressed(){
   else if(state === 3){
     state = 5;
   }
-  else if(state === 4 && mouseY > 600 && mouseX > 250 && mouseX < 450){
-    //
+  else if(state === 4 && mouseX >= 0 && mouseY >= 270 && mouseX <= 25 && mouseY <= 430){
+    image(turnLeft, 28.5 ,162.5);
+
+
     let someBall = new Ball(350,650,power,aim);
     ballArray.push(someBall);
   }
@@ -174,7 +179,7 @@ function pickMode(){
   image(modeSwitcher, 0, 0, 700, 700);
   if (state === 1 && mouseX >= 50 && mouseY >= 450 && mouseX <= 650 && mouseY <= 650){
     image(altitudeMode, 45, 445, 612, 211);
-  } else  if (state === 1 && mouseX >= 50 && mouseY >= 100 && mouseX <= 650 && mouseY <= 350){
+  } else  if (state === 1 && mouseX >= 50 && mouseY >= 150 && mouseX <= 650 && mouseY <= 350){
     image(godMode, 45, 150, 612, 211);
   }
 }
@@ -190,7 +195,14 @@ function otherInstructions(){
 }
 
 function topView(){
-  image(golfBackground, 0, 0);
+  image(golfBackground, 0, 0, 700, 700);
+  if (state === 4 && mouseX >= 0 && mouseY >= 270 && mouseX <= 25 && mouseY <= 430){
+    image(turnLeft, 0, 267.5, 28.5 ,162.5);
+    console.log("it worked!!!");
+  } else if (state === 4 && mouseX >= 674 && mouseY >= 270 && mouseX <= 700 && mouseY <= 430){
+    image(turnRight, 668, 267.5, 700, 432.5);
+    console.log("it kinda works");
+  }
   for (let i=ballArray.length-1; i >= 0; i--){
     ballArray[i].update();
     ballArray[i].show();
