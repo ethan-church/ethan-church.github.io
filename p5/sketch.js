@@ -91,6 +91,8 @@ function preload(){
   golfBackground = loadImage("assets/golfBackground.png");
   turnLeft = loadImage("assets/turnLeft.png");
   turnRight = loadImage("assets/turnRight.png");
+  speedUp = loadImage("assets/speedUp.png");
+  slowDown = loadImage("assets/slowDown.png");
 }
 
 function setup() {
@@ -198,10 +200,12 @@ function topView(){
   image(golfBackground, 0, 0, 700, 700);
   if (state === 4 && mouseX >= 0 && mouseY >= 270 && mouseX <= 25 && mouseY <= 430){
     image(turnLeft, 0, 267.5, 28.5 ,162.5);
-    console.log("it worked!!!");
   } else if (state === 4 && mouseX >= 674 && mouseY >= 270 && mouseX <= 700 && mouseY <= 430){
-    image(turnRight, 668, 267.5, 700, 432.5);
-    console.log("it kinda works");
+    image(turnRight, 671, 269, 29 ,162.5);
+  } else if (state === 4 && mouseX >= 270 && mouseY >= 0 && mouseX <= 430 && mouseY <= 25){
+    image(speedUp, 267, 0,  162.5, 28.5);
+  } else if (state === 4 && mouseX >= 270 && mouseY >= 675 && mouseX <= 430 && mouseY <= 700){
+    image(slowDown, 267, 671, 162.5, 28.5);
   }
   for (let i=ballArray.length-1; i >= 0; i--){
     ballArray[i].update();
