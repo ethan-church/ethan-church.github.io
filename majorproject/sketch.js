@@ -7,13 +7,19 @@ let toDoInput;
 function setup() {
   toDoInput = [];
   createCanvas(windowWidth, windowHeight);
+  toDoForm();
 }
 
 function draw() {
 
 }
 
-function createForm(){
-  let label = createElement("label",  "Add");
-  label.parent("toDo");
+function toDoForm(){
+  let input = createElement("input");
+  let submitButton = createElement("button", "Done");
+  input.parent("toDo");
+  input.class("form-control mb-3");
+  input.attribute("placeholder", "Add new task");
+  submitButton.parent("toDo");
+  submitButton.class("btn btn-primary");
 }
