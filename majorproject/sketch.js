@@ -10,5 +10,10 @@ function setup() {
 }
 
 function draw() {
-  let label = ("Add");
+
+}
+
+function createForm(){
+  let label = createElement("label",  "Add");
+  label.parent("toDo");
 }
