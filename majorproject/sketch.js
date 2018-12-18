@@ -1,4 +1,4 @@
-// Schema To-Do List
+// Frame Plannning Centre To-Do List
 // Ethan Church
 // Start December 10, 2018
 
@@ -16,6 +16,8 @@ function draw() {
 
 function toDoForm(){
   let submitButton = createElement("button", "Done");
+  let label = createElement("label", "add");
+  let userInput = createElement("input");
   userInput.parent("toDo");
   userInput.class("form-control mb-3");
   userInput.attribute("placeholder", "Add new task");
