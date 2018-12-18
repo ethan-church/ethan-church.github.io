@@ -2,31 +2,38 @@
 // Ethan Church
 // Start December 10, 2018
 
-let toDoInput;
+let itemCounter;
 
 function setup() {
   //Initializes Firebase
-  var config = {
-    apiKey: "AIzaSyC1f-4hcTNqkqkSwwGmwbwACqSNHGaXn9I",
-    authDomain: "frame-planning-centre.firebaseapp.com",
-    databaseURL: "https://frame-planning-centre.firebaseio.com",
-    projectId: "frame-planning-centre",
-    storageBucket: "frame-planning-centre.appspot.com",
-    messagingSenderId: "239238211506"
-  };
-  firebase.initializeApp(config);
+  // let config = {
+  //   apiKey: "AIzaSyC1f-4hcTNqkqkSwwGmwbwACqSNHGaXn9I",
+  //   authDomain: "frame-planning-centre.firebaseapp.com",
+  //   databaseURL: "https://frame-planning-centre.firebaseio.com",
+  //   projectId: "frame-planning-centre",
+  //   storageBucket: "frame-planning-centre.appspot.com",
+  //   messagingSenderId: "239238211506"
+  // };
+  // firebase.initializeApp(config);
+  // console.log(firebase);
 
-  //Start of Project
-  toDoInput = [];
-  createCanvas(windowWidth, windowHeight);
-  toDoForm();
+//FireBase Stuff
+// let userInputs = firebase.database();
+// let ref = userInputs.ref('inputs');
+// let data = {
+//   name: "Ethan Church",
+//   task: "Design"
+// }
+// ref.push(data);
+
+//Start of Project
+createCanvas(windowWidth, windowHeight);
+toDoForm();
 }
 
-let database = firebase.database();
-let ref = database.ref('add')
+itemCounter = 0;
 
-function draw() {
-
+function draw(){
 }
 
 function toDoForm(){
@@ -38,12 +45,7 @@ function toDoForm(){
   userInput.attribute("placeholder", "Add new task");
   submitButton.parent("toDo");
   submitButton.class("btn btn-primary");
-  submitButton.mousePressed();
-  toDoInput.push(userInput);
-}
 
- function submitButton(){
-   let data = {
-      added;
-   }
- }
+  //Saving Information in Local Storage
+  localStorage.setItem(itemCounter, "hello");
+}
