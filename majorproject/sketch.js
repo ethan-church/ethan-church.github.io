@@ -4,12 +4,12 @@
 
 let itemCounter;
 let userInput;
-let itemNumber
+let userOutput;
 
 function setup() {
 createCanvas(windowWidth, windowHeight);
 toDoForm();
-itemCounter = localStorage.getItem(itemNumber);
+itemCounter = localStorage.getItem("itemNumber");
 }
 
 function toDoForm(){
@@ -26,8 +26,14 @@ function toDoForm(){
 
 function saveInfo() {
   //Saving Information in Local Storage
-  localStorage.setItem(itemCounter, userInput.value());
   itemCounter++;
+  localStorage.setItem(itemCounter, userInput.value());
   localStorage.setItem("itemNumber", itemCounter);
-  console.log("it worked");
+  tasks();
+}
+
+function tasks(){
+  userOutput = createElement("label", localStorage.getItem("itemNumber"));
+  userOutput.parent("output");
+  console.log("it Worked");
 }
