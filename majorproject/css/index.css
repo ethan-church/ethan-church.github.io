@@ -1,4 +1,17 @@
-
+.project{
+  background-color: rgb(240, 240, 240);
+  margin-top: 3em;
+}
 .container {
-  background-color: rgb(247, 247, 247);
+}
+
+body{
+  background-color: rgb(240, 240, 240);
+}
+
+#output {
+  margin-top: 0.7em;
+  text-align: center;
+  font-size: 2em;
+  color: black;
 }
