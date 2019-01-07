@@ -48,7 +48,7 @@ function display(){
   output = localStorage.getItem(task);
   outputFinal = createElement("label", output);
   outputFinal.parent("output");
-  console.log("yes this worked");
+  console.log(output);
 }
 
 
