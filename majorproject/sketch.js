@@ -14,21 +14,7 @@ function setup(){
   itemNumber = 0;
   itemInStorage = true;
   newItem();
-  // formControl();
 }
-
-// //Creating form and controls
-// function formControl(){
-//   // let submitButton = createElement("button", "Done");
-//   userInput = document.getElementById('addItem').value
-//   userInput.parent("toDo");
-//   userInput.class("form-control mb-3");
-//   userInput.attribute("placeholder", "Add new task");
-//   // submitButton.parent("toDo");
-//   // submitButton.class("btn btn-primary");
-//   // submitButton.mousePressed(store);
-//   keyPressed();
-// }
 
 function keyPressed(){
   if (keyCode === 13){
