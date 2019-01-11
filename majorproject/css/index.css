@@ -1,8 +1,75 @@
-.project{
-  background-color: rgb(240, 240, 240);
-  margin-top: 3em;
+@charset "UTF-8"
+
+.main-page {
+  background-color: rgb(54, 73, 90);
 }
-.container {
+
+header {
+  width: 100%;
+  height: 5em;
+  position: fixed;
+  padding: 0.7em;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: #5DCE9A;
+  box-shadow: 0.5em, 0.5em, 0.5em, rgb(44, 62, 80, 0.15);
+  border-bottom-right-radius: 0.7em;
+  border-bottom-left-radius: 0.7em;
+}
+
+header input {
+  color: white;
+  width: 100%;
+  height: 3.4em;
+  float: left;
+  padding: 0 3.8em 0 0;
+  text-indent: 1em;
+  background: rgba(255, 255, 255, 0.2);
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-top-right-radius: 1.7em;
+  border-bottom-right-radius: 1.7em;
+  border: 0em;
+  box-shadow: 0em;
+  outline: none;
+}
+
+header button {
+  width: 3.4em;
+  height: 3.4em;
+  position: absolute;
+  top: 0.7em;
+  right: 0.7em;
+  z-index: 2;
+  border-radius: 2.4em;
+  border: 0em;
+  box-shadow: 0em;
+  outline: none;
+  cursor: pointer;
+}
+
+header button svg {
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -0.5em 0 0 -0.5em;
+}
+
+header button svg .fill {
+  fill: #5dce9a;
+}
+
+::placeholder {
+  color: White;
+  opacity: 0.75;
+}
+
+.project{
+  margin-top: 1.5em;
+  background-color: rgb(240, 240, 240);
 }
 
 body{
@@ -14,4 +81,9 @@ body{
   text-align: center;
   font-size: 2em;
   color: black;
+}
+
+.home-hero {
+  margin: 1em;
+  margin-top; 0.5em;
 }
