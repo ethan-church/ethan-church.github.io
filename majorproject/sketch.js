@@ -44,10 +44,11 @@ function display(){
   if (localStorage.length > 0){
     for (let i = 0; i < localStorage.length; i++){
       outputName = JSON.parse(localStorage.getItem(i)).name;
-      outputStyle = createElement("input", outputName);
+      outputStyle = createElement("list-group", outputName);
       outputStyle.parent("output");
-      outputStyle.class("form-control mb-3");
+      outputStyle.class("list-group-item list-group-item-action");
       outputStyle.attribute("placeholder", outputName);
+      outputStyle.doubleClicked(done);
     }
   } else {
     console.log("No inputs yet!");
@@ -63,4 +64,8 @@ function newItem(){
         itemNumber += 1;
       }
   }
+}
+
+function done() {
+  outputStyle.addClass("is-valid");
 }
