@@ -67,5 +67,6 @@ function newItem(){
 }
 
 function done() {
+  console.log("It works");
   outputStyle.addClass("is-valid");
 }
