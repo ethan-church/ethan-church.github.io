@@ -44,17 +44,16 @@ function display(){
   if (localStorage.length > 0){
     for (let i = 0; i < localStorage.length; i++){
       outputName = JSON.parse(localStorage.getItem(i)).name;
-      outputStyle = createElement("list-group", outputName);
+      outputStyle = createElement("output-style", outputName);
       outputStyle.parent("output");
-      outputStyle.class("list-group-item list-group-item-action");
-      outputStyle.attribute("placeholder", outputName);
-      outputStyle.doubleClicked(done);
+      outputStyle.class("output-style");
     }
   } else {
     console.log("No inputs yet!");
   }
 }
 
+//Checks to set lowest un used key value
 function newItem(){
   while (itemInStorage) {
       if (localStorage.getItem(itemNumber) === null) {
@@ -64,9 +63,4 @@ function newItem(){
         itemNumber += 1;
       }
   }
-}
-
-function done() {
-  console.log("It works");
-  outputStyle.addClass("is-valid");
 }
