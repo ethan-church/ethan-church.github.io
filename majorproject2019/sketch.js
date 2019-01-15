@@ -14,7 +14,6 @@ function setup(){
   display();
   itemNumber = 0;
   itemInStorage = true;
-  newItem();
 }
 
 function keyPressed(){
@@ -25,6 +24,9 @@ function keyPressed(){
 
 //Storing information
 function store(){
+  //Creates lowest key number
+  newItem();
+
   //Getting form values
   inputs = document.getElementById('addItem').value;
   task = {
@@ -65,6 +67,7 @@ function newItem(){
         itemNumber += 1;
       }
   }
+  itemInStorage = true;
 }
 
 function deleteAll(){
