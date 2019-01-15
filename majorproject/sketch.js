@@ -10,6 +10,7 @@ let userInput;
 
 function setup(){
   document.getElementById('add').addEventListener('click', store);
+  document.getElementById('delete').addEventListener('click', deleteAll);
   display();
   itemNumber = 0;
   itemInStorage = true;
@@ -44,9 +45,10 @@ function display(){
   if (localStorage.length > 0){
     for (let i = 0; i < localStorage.length; i++){
       outputName = JSON.parse(localStorage.getItem(i)).name;
-      outputStyle = createElement("output-style", outputName);
+      outputStyle = createElement("input", outputName);
       outputStyle.parent("output");
-      outputStyle.class("output-style");
+      outputStyle.class("form-control");
+      outputStyle.attribute("placeholder", outputName);
     }
   } else {
     console.log("No inputs yet!");
@@ -64,3 +66,56 @@ function newItem(){
       }
   }
 }
+
+function deleteAll(){
+  for (let i = 0; i < localStorage.length + 1; i++){
+    localStorage.clear();
+  }
+  //Reload Webpage
+  window.location.reload(false);
+}
+
+function deleteItems() {
+
+}
+
+
+// First Save
+
+// let itemCounter;
+// let userInput;
+// let userOutput;
+//
+// function setup() {
+// createCanvas(windowWidth, windowHeight);
+// form();
+// itemCounter = localStorage.getItem("itemNumber");
+// tasks();
+// }
+//
+// function form(){
+//   let submitButton = createElement("button", "Done");
+//   userInput = createElement("input");
+//   userInput.parent("toDo");
+//   userInput.class("form-control mb-3");
+//   userInput.attribute("placeholder", "Add new task");
+//   submitButton.parent("toDo");
+//   submitButton.class("btn btn-primary");
+//  submitButton.mousePressed(store);
+// }
+//
+// function store() {
+//   //Saving Information in Local Storage
+//   localStorage.setItem(itemCounter, userInput.value());
+//   localStorage.setItem("itemNumber", itemCounter);
+//   itemCounter++;
+//   getValues();
+// }
+//
+// function getValues(){
+//   for (let i = 0; i < localStorage.length; i++){
+//   userOutput = createElement("label","milk");
+//   userOutput.parent("output");
+//   console.log(localStorage);
+//   }
+// }
