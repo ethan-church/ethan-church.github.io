@@ -2,6 +2,7 @@
 // Ethan Church
 // Start December 10, 2018
 
+//Variables
 let task, items;
 let inputs;
 let itemNumber, itemInStorage;
@@ -16,6 +17,7 @@ function setup(){
   itemInStorage = true;
 }
 
+//Submit Input using enter key
 function keyPressed(){
   if (keyCode === 13){
     store();
@@ -31,7 +33,7 @@ function store(){
   inputs = document.getElementById('addItem').value;
   task = {
     name: inputs,
-    due: "Tommorow",
+    due: "This is was suppost to come later",
   }
 
   //Saving to local storage
@@ -50,7 +52,7 @@ function display(){
       outputStyle = createElement("input", outputName);
       outputStyle.parent("output");
       outputStyle.class("form-control");
-      outputStyle.attribute("placeholder", outputName);
+      outputStyle.attribute("placeholder", outputName)
     }
   } else {
     console.log("No inputs yet!");
@@ -70,6 +72,7 @@ function newItem(){
   itemInStorage = true;
 }
 
+//Delete All function
 function deleteAll(){
   for (let i = 0; i < localStorage.length + 1; i++){
     localStorage.clear();
@@ -77,48 +80,3 @@ function deleteAll(){
   //Reload Webpage
   window.location.reload(false);
 }
-
-function deleteItems() {
-
-}
-
-
-// First Save
-
-// let itemCounter;
-// let userInput;
-// let userOutput;
-//
-// function setup() {
-// createCanvas(windowWidth, windowHeight);
-// form();
-// itemCounter = localStorage.getItem("itemNumber");
-// tasks();
-// }
-//
-// function form(){
-//   let submitButton = createElement("button", "Done");
-//   userInput = createElement("input");
-//   userInput.parent("toDo");
-//   userInput.class("form-control mb-3");
-//   userInput.attribute("placeholder", "Add new task");
-//   submitButton.parent("toDo");
-//   submitButton.class("btn btn-primary");
-//  submitButton.mousePressed(store);
-// }
-//
-// function store() {
-//   //Saving Information in Local Storage
-//   localStorage.setItem(itemCounter, userInput.value());
-//   localStorage.setItem("itemNumber", itemCounter);
-//   itemCounter++;
-//   getValues();
-// }
-//
-// function getValues(){
-//   for (let i = 0; i < localStorage.length; i++){
-//   userOutput = createElement("label","milk");
-//   userOutput.parent("output");
-//   console.log(localStorage);
-//   }
-// }

@@ -9,3 +9,5 @@ January 10, 2019: UI Design (Input Bar)
 January 11-14 2019, Adding Glyphicons to output bars, for delete system (Failed)
 January 15, 2019: Most responsiveness for mobile and computer devices added and fixed
 January 15, 2019: Fixed lowest number for value problem when saving to local storage
+January 17-20, 2019: Attempted to add individual delete and buttons and output styles
+January 21, 2019: Deleted all attempts and went back to what I had a week ago. Handing Everything in.
